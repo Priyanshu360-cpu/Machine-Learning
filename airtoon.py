@@ -11,12 +11,11 @@ from PIL import ImageTk, Image
 
 
 def cartoonify(ImagePath):
-     #read the image
     originalmage = cv2.imread(ImagePath)
     originalmage = cv2.cvtColor(originalmage, cv2.COLOR_BGR2RGB)
-#print(image)  # image is stored in form of numbers
 
-# confirm that image is chosen
+
+
     if originalmage is None:
         print("Can not find any image. Choose appropriate file")
         
@@ -40,9 +39,9 @@ def cartoonify(ImagePath):
      ax.imshow(images[i], cmap='gray')
     save(ReSized6, ImagePath)
     plt.show()
-#plt.imshow(ReSized1, cmap='gray'
+
 def save(ReSized6, ImagePath):
-    #saving an image using imwrite()
+ 
     newName="cartoonified_Image"
     path1 = os.path.dirname(ImagePath)
     extension=os.path.splitext(ImagePath)[1]
