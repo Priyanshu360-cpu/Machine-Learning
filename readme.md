@@ -13,5 +13,5 @@ pip install <module name>
 To run the files use the command
 
 ```
-py run <filename>
+py <filename>
 ```
