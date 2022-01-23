@@ -62,9 +62,7 @@ def click(frame):
         continue
 while(q==1):
     net,first = videoCaptureObject.read()
-    baseline_image=cv2.cvtColor(first,cv2.COLOR_BGR2GRAY)
-    baseline_image=cv2.GaussianBlur(baseline_image,(25,25),0)
-    grayScaleImage = cv2.cvtColor(baseline_image, cv2.COLOR_BGR2GRAY)
+    grayScaleImage = cv2.cvtColor(first, cv2.COLOR_BGR2GRAY)
     smoothGrayScale = cv2.medianBlur(grayScaleImage, 5)
     cv2.imshow('Set_Base',first)
     # Remove this Part to insert your own image
