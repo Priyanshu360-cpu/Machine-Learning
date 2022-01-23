@@ -51,7 +51,7 @@ def down(frame):
             continue
         continue
 def click(frame):
-    left = cv2.imread("./gestured_image/Down.png")
+    left = cv2.imread("./gestured_image/Click.png")
     delta=cv2.absdiff(frame,left)
     threshold=cv2.threshold(delta,35,255, cv2.THRESH_BINARY)[1]
     (contours,_)=cv2.findContours(threshold,cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -68,16 +68,12 @@ while(q==1):
     smoothGrayScale = cv2.medianBlur(grayScaleImage, 5)
     cv2.imshow('Set_Base',first)
     # Remove this Part to insert your own image
-    left = cv2.imread("./Left.png")
-    right = cv2.imread()
-    delta=cv2.absdiff(smoothGrayScale,left)
-    threshold=cv2.threshold(delta,35,255, cv2.THRESH_BINARY)[1]
-    (contours,_)=cv2.findContours(threshold,cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    for contour in contours:
-        if cv2.contourArea(contour) < 5000:
-            mouse.drag(0, 0, 100, 100, absolute=False, duration=0.1)
-            continue
-        continue
+    left(smoothGrayScale)
+    right(smoothGrayScale)
+    up(smoothGrayScale)
+    down(smoothGrayScale)
+    click(smoothGrayScale)
+    # Remove till here to capture ur own image
     if(cv2.waitKey(1) & 0xFF == ord('q')):
         q=2
         cv2.destroyAllWindows()
