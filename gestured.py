@@ -75,5 +75,5 @@ while(q==1):
     if(cv2.waitKey(1) & 0xFF == ord('q')):
         q=2
         cv2.destroyAllWindows()
-        capture(baseline_image)
+        capture(smoothGrayScale)
     
