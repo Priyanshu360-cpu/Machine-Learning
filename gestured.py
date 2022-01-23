@@ -1,5 +1,10 @@
 import mouse
 import cv2
+import pyttsx3
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)
+engine.setProperty('rate', 150)
 q=1
 videoCaptureObject = cv2.VideoCapture(0)
 
@@ -18,6 +23,8 @@ def left(frame):
     for contour in contours:
         if cv2.contourArea(contour) < 5000:
             mouse.drag(100, 100, 0, 0, absolute=False, duration=0.1)
+            engine.say("Mouse Moved Left")
+            engine.runAndWait()
             continue
         continue
 def right(frame):
@@ -28,6 +35,8 @@ def right(frame):
     for contour in contours:
         if cv2.contourArea(contour) < 5000:
             mouse.drag(100, 100, 0, 0, absolute=False, duration=0.1)
+            engine.say("Mouse Moved Right")
+            engine.runAndWait()
             continue
         continue
 def up(frame):
@@ -38,7 +47,10 @@ def up(frame):
     for contour in contours:
         if cv2.contourArea(contour) < 5000:
             mouse.drag(100, 100, 0, 0, absolute=False, duration=0.1)
+            engine.say("Mouse Moved Up")
+            engine.runAndWait()
             continue
+        
         continue
 def down(frame):
     left = cv2.imread("./gestured_image/Down.png")
@@ -48,6 +60,8 @@ def down(frame):
     for contour in contours:
         if cv2.contourArea(contour) < 5000:
             mouse.drag(100, 100, 0, 0, absolute=False, duration=0.1)
+            engine.say("Mouse Moved Down")
+            engine.runAndWait()
             continue
         continue
 def click(frame):
@@ -58,6 +72,8 @@ def click(frame):
     for contour in contours:
         if cv2.contourArea(contour) < 5000:
             mouse.click('left')
+            engine.say("Mouse Clicked")
+            engine.runAndWait()
             continue
         continue
 while(q==1):
