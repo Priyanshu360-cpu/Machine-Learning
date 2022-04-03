@@ -19,7 +19,7 @@ locname = geoLoc.reverse(maina)
 print(locname.address)
 p=0
 r = sr.Recognizer() 
-ytkey="Yt Key"  
+ytkey="CHANGED KEYS"  
  
 def SpeakText(command):
 
