@@ -1,5 +1,4 @@
 import speech_recognition as sr
-import pyttsx3 
 import requests
 import json
 import os
@@ -9,6 +8,7 @@ import mouse
 import screen_brightness_control as sbc
 import geocoder
 from geopy.geocoders import Nominatim
+from subprocess import call
 ki = geocoder.ip('me')
 print(ki.latlng)
 geoLoc = Nominatim(user_agent="GetLoc")
@@ -19,13 +19,13 @@ locname = geoLoc.reverse(maina)
 print(locname.address)
 p=0
 r = sr.Recognizer() 
-ytkey="CHANGED KEYS"  
+ytkey=""  
  
 def SpeakText(command):
 
-    engine = pyttsx3.init()
-    engine.say(command) 
-    engine.runAndWait()
+    speech=command
+    call(["espeak",speech])
+
       
 while(1):    
     try:
