@@ -1,6 +1,6 @@
 from sklearn.datasets import make_blobs
 # Y containing two classes
-X, Y = make_blobs(n_samples=500, centers=2,
+X, Y = make_blobs(n_samples=500, centers=3,
                   random_state=0, cluster_std=0.40)
 import matplotlib.pyplot as plt
 # plotting scatters 
