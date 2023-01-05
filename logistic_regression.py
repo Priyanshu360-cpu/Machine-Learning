@@ -19,3 +19,5 @@ print(np.concatenate((Y_pred.reshape(len(Y_pred),1),Y_test.reshape(len(Y_test),1
 from sklearn.metrics import confusion_matrix,accuracy_score
 cm=confusion_matrix(Y_test,Y_pred)
 print(cm) #confuison matrix
+ce=accuracy_score(Y_test,Y_pred)
+print(ce) #accuracy score
