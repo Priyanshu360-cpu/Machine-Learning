@@ -11,7 +11,7 @@ sc=StandardScaler()
 X_train=sc.fit_transform(X_train)
 X_test=sc.transform(X_test)
 from sklearn.linear_model import LogisticRegression
-regressor=LogisticRegression()
+regressor=LogisticRegression(random_state=0)
 regressor.fit(X_train,Y_train)
 print(regressor.predict(sc.transform([[30,87000]])))
 Y_pred=regressor.predict(X_test)
